@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from .views import helloWorld,contact,aboutme
+from django.http.response import HttpResponse
 
-
+def helloWorld(request):
+    return HttpResponse("<h1>This is homepage</h1>")
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', helloWorld, name='home'),
-    url(r'^contact$', contact, name='contact'),
-    url(r'^aboutme$', aboutme, name='aboutme'),
+    url(r'^$', helloWorld),
 ]
